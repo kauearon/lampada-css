@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #111;
+}
+
+.wrapper{
+    position: relative;
+    height: 500px;
+    width: 450px;
+}
+
+.wrapper img{
+    position: absolute;
+    height: 450px;
+    width: 100%;
+    margin-top: -50px;
+}
+
+/* Botão */
+.wrapper label{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wrapper label span{
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: block;
+    border: 2px solid #fff;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 48px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wrapper label span:before{
+    content: "Ligar";
+}
+
+.wrapper label span:hover{
+    background: #fff;
+    color: #111;
+}
+
+/* Estado inicial */
+#bulb-on {
+    display: none;
+    animation: glow 3s linear infinite;
+}
+
+#bulb-off {
+    display: block;
+}
+
+/* Quando clicar no botão */
+#btn:checked ~ #bulb-on {
+    display: block;
+}
+
+#btn:checked ~ #bulb-off {
+    display: none;
+}
+
+#btn:checked ~ label span::before{
+    content: "Desligar";
+}
+
+/* Animação de brilho */
+@keyframes glow {
+    0%, 100% { opacity: 1; }
+    74%, 84% { opacity: 0; }
+    80%, 90% { opacity: 1; }
+}
+
+/* Esconde o input */
+.wrapper input {
+    display: none;
+}
